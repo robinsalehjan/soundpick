@@ -1,7 +1,7 @@
 # Description
 - `Soundpick` is an extension to `Raycast` where you can:
   1. See what device you are playing music from
-  2. See available devices that you can connect to and start playing music from 
+  2. See available devices that you can connect to, start playing music from and disconnect from.
 
 # Screencast
 ![soundpick](https://user-images.githubusercontent.com/8507719/181265824-69f54db9-b321-4547-acea-bc6d38d420ff.gif)
