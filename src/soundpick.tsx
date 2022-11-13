@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Icon, List, Action, ActionPanel, showToast, Toast } from "@raycast/api";
+import {
+  Icon,
+  List,
+  Action,
+  ActionPanel,
+  showToast,
+  Toast,
+} from "@raycast/api";
 import { SoundOutputDevice } from "./shared/types";
 import EmptyListView from "./components/EmptyListView";
 import SoundOutputService from "./sound-output-service";
@@ -38,10 +45,13 @@ export default function Soundpick() {
     ));
   }
 
-  async function connectToDeviceActionHandler(newDevice: SoundOutputDevice): Promise<void> {
+  async function connectToDeviceActionHandler(
+    newDevice: SoundOutputDevice
+  ): Promise<void> {
     const connectedDevice = listOfDevices.at(0);
     const newDeviceIsTheConnectedDevice =
-      connectedDevice?.name === newDevice.name && connectedDevice?.isConnected === true;
+      connectedDevice?.name === newDevice.name &&
+      connectedDevice?.isConnected === true;
 
     if (newDeviceIsTheConnectedDevice) {
       await showToast({
@@ -72,7 +82,8 @@ export default function Soundpick() {
   }
 
   async function fetchSoundOutputDevices(): Promise<void> {
-    const response: Array<SoundOutputDevice> = await soundOutputService.fetchDevices();
+    const response: Array<SoundOutputDevice> =
+      await soundOutputService.fetchDevices();
     setListOfDevices(response);
     setIsLoading(false);
   }

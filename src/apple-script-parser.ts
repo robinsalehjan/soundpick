@@ -18,7 +18,10 @@ export default class AppleScriptParser implements AppleScriptParser {
     for (let index = 0; index < deviceNames.length; index++) {
       const deviceName = deviceNames[index];
       const deviceConnection = deviceConnections[index];
-      response.push(<SoundOutputDevice>{ name: deviceName, isConnected: deviceConnection });
+      response.push(<SoundOutputDevice>{
+        name: deviceName,
+        isConnected: deviceConnection,
+      });
     }
 
     console.log(`[INFO]: Returning response: ${JSON.stringify(response)}`);
@@ -53,7 +56,9 @@ export default class AppleScriptParser implements AppleScriptParser {
         return stringToBool(sanitizedValue);
       });
 
-    console.log(`[INFO]: Parsed connection states: ${deviceConnections} in response`);
+    console.log(
+      `[INFO]: Parsed connection states: ${deviceConnections} in response`
+    );
     return deviceConnections;
   }
 

@@ -1,6 +1,10 @@
 import { runAppleScript } from "run-applescript";
 import { stringToBool } from "./shared/utils";
-import { SoundOutputDevice, SoundOutputServiceConfig, AppleScriptParser } from "./shared/types";
+import {
+  SoundOutputDevice,
+  SoundOutputServiceConfig,
+  AppleScriptParser,
+} from "./shared/types";
 
 export default class SoundOutputService implements SoundOutputService {
   private config: SoundOutputServiceConfig;
@@ -51,10 +55,14 @@ export default class SoundOutputService implements SoundOutputService {
       end tell
       `);
 
-      console.log(`[INFO]: Got response from runAppleScript: ${scriptResponse}`);
+      console.log(
+        `[INFO]: Got response from runAppleScript: ${scriptResponse}`
+      );
 
       const response = this.parser.parse(scriptResponse);
-      console.log(`[INFO]: Did successfully parse: ${JSON.stringify(response)}`);
+      console.log(
+        `[INFO]: Did successfully parse: ${JSON.stringify(response)}`
+      );
 
       return response;
     } catch (error) {
@@ -112,7 +120,9 @@ export default class SoundOutputService implements SoundOutputService {
       console.log(`[INFO]: Got response from runAppleScript: ${response}`);
       return stringToBool(response);
     } catch (error) {
-      console.log(`[ERROR]: Could not set selected state for '${strippedName}' to true`);
+      console.log(
+        `[ERROR]: Could not set selected state for '${strippedName}' to true`
+      );
       return false;
     }
   }
